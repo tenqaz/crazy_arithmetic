@@ -1,7 +1,6 @@
 """
 @author: Jim
 @project: crazy_arithmetic
-@file: MyStack.py
 @time: 2019/12/1 17:09
 @desc: 用队列实现栈
 

@@ -1,7 +1,7 @@
 """
 @author: Jim
 @project: crazy_arithmetic
-@file: stack.py
+@file: 20_validString.py
 @time: 2019/12/1 15:59
 @desc:
 

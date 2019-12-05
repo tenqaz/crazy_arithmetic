@@ -1,15 +1,17 @@
+# -*- coding: utf-8 -*-
+
 """
 @author: Jim
 @project: crazy_arithmetic
-@file: MyQueue.py
-@time: 2019/12/1 16:30
+@time: 2019/12/5 10:25
 @desc:
 
-使用堆栈实现队列
+    使用堆栈实现队列
 
-用两个栈去实现。分为输入栈和输出栈，将输入栈push到输出栈，输出栈的栈顶就是队列的输出.
-
+    用两个栈去实现。分为输入栈和输出栈，将输入栈push到输出栈，输出栈的栈顶就是队列的输出.
 """
+
+from __future__ import annotations
 
 
 class MyQueue(object):
