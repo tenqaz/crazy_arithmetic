@@ -17,4 +17,34 @@
     输入: [2,2,1,1,1,2,2]
     输出: 2
 
+    1. map
+    2. 排序
+    3. 分而治之
+
 """
+
+from typing import List
+from collections import defaultdict
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+
+        data = defaultdict(int)
+
+        max_count = 0
+        max_data = 0
+
+        for i in nums:
+            data[i] += 1
+
+            if data[i] > max_count:
+                max_count = data[i]
+                max_data = i
+
+        return max_data
+    
+if __name__ == '__main__':
+    solution = Solution()
+    data = solution.majorityElement([2,2,1,1,1,2,2])
+    print(data)
+
