@@ -7,6 +7,8 @@
 @desc:
 
     反转一个单链表
+
+    https://leetcode-cn.com/problems/reverse-linked-list/
 """
 
 from __future__ import annotations
@@ -27,13 +29,16 @@ class Solution(object):
     def reverseList(self, head: ListNode) -> ListNode:
         """ 反转一个单链表
 
+            迭代
+
+            时间复杂度: O(n)
+            空间复杂度: O(1)
         Args:
             head (ListNode): 链表头结点
 
         Returns:
             返回反转后的头结点
         """
-
         last_node = None
         current_node = head
         while current_node:

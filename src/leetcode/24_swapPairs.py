@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+2# -*- coding: utf-8 -*-
 
 """
 @author: Jim
@@ -38,7 +38,7 @@ class Solution(object):
         :rtype: ListNode
         """
 
-        pre = self
+        pre = self  # 可以创建一个新的节点
         pre.next = head
 
         while pre.next and pre.next.next:
