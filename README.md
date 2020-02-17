@@ -17,10 +17,11 @@
 ### leetcode
 | 算法 | 题目 |
 |---|---|
-| 动态规划 | [322_零钱兑换](file://./leetcode/332_零钱兑换) |
+| 动态规划 | [322_零钱兑换](file://./leetcode/332_206_reverseList) |
 
 #### 链表
 
-[反转链表](file:./leetcode/206_反转链表)
+[反转链表](file:./leetcode/206_reverseList)
+[反转链表](./leetcode/206_reverseList)
 
  
