@@ -1,7 +1,7 @@
 """
 @author: Jim
 @project: crazy_arithmetic
-@file: 235_lowestCommonAncestor.py
+@file: 235_二叉搜索树的最近公共祖先.py
 @time: 2019/12/16 16:24
 @desc:
     二叉搜索树最近公共祖先

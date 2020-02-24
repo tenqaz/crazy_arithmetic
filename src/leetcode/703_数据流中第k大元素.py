@@ -70,7 +70,7 @@ class KthLargest(object):
                 pass
         """
 
-        parent_index = smaller_child_index = root_index = 1
+        parent_index = smaller_child_index = 1
 
         while True:
             left_index, right_index = KthLargest._left_child(parent_index), KthLargest._right_child(parent_index)
@@ -140,11 +140,11 @@ class KthLargest(object):
 
 
 if __name__ == "__main__":
-    kthLargest = KthLargest(2, [0])
-    # kthLargest = KthLargest(3, [4, 5, 8, 2])
+    # kthLargest = KthLargest(2, [0])
+    kthLargest = KthLargest(3, [4, 5, 8, 2])
 
-    print(kthLargest.add(-1))
-    # print(kthLargest.add(5))
-    # print(kthLargest.add(10))
-    # print(kthLargest.add(9))
-    # print(kthLargest.add(4))
+    print(kthLargest.add(3))
+    print(kthLargest.add(5))
+    print(kthLargest.add(10))
+    print(kthLargest.add(9))
+    print(kthLargest.add(4))

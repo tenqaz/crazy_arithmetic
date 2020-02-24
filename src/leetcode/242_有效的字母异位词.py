@@ -5,17 +5,11 @@
 @project: crazy_arithmetic
 @time: 2019/12/9 16:56
 @desc:
-    给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
 
-    示例 1:
+    https://leetcode-cn.com/problems/valid-anagram/
 
-    输入: s = "anagram", t = "nagaram"
-    输出: true
+    异位词是 相同的单词，里面的字母无序打乱
 
-    示例 2:
-
-    输入: s = "rat", t = "car"
-    输出: false
 
 """
 

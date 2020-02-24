@@ -11,6 +11,7 @@
 
 from __future__ import annotations
 
+
 class ListNode(object):
     """
         链表节点
@@ -22,8 +23,6 @@ class ListNode(object):
 
 
 class Solution(object):
-
-
 
     def detectCycle1(self, head: ListNode):
         """ 环形链表
@@ -37,7 +36,6 @@ class Solution(object):
         """
 
         cache = set()
-
         while head:
             if head in cache:
                 return head

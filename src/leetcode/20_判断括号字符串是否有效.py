@@ -1,11 +1,12 @@
 """
 @author: Jim
 @project: crazy_arithmetic
-@file: 20_validString.py
+@file: 20_判断括号字符串是否有效.py
 @time: 2019/12/1 15:59
 @desc:
 
 判断括号字符串是否有效
+
 
 """
 

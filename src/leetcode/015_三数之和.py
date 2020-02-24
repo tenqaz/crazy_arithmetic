@@ -1,10 +1,15 @@
 """
 @author: Jim
 @project: crazy_arithmetic
-@file: 015_threeSum.py
+@file: 015_三数之和.py
 @time: 2019/12/10 11:31
 @desc:
-    三个
+
+    有一种方式使用双指针形式:
+    首先排序使用快排: O(nlogn)，然后遍历nums, 从遍历a的下一个开始用两个指针指向首端b和末端c
+        当 a + b + c > 0，则末端C向左移动一步，然后继续比较
+        当 a + b + c < 0. 则首端向右移动一步，然后继续比较
+        当 a + b + c = 0. 则ok
 
 """
 
@@ -15,7 +20,10 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         """
 
-            使用哈希表完成，标准答案.
+            使用哈希表完成。类似于两数之和
+
+            时间复杂度: O(n^2)
+            空间复杂度: On(n)
 
         Args:
             nums:
@@ -41,32 +49,6 @@ class Solution:
                 else:
                     res.add((v, -v - x, x))
         return map(list, res)
-
-    def threeSum2(self, nums: List[int]) -> List[List[int]]:
-        """ 自己完成的算法. 还待完成.
-
-        Args:
-            nums:
-
-        Returns:
-
-        """
-
-        nums.sort()
-        res = set()
-
-        for index, value in enumerate(nums[:-2]):
-
-            tmp_data = set()
-
-            for item in nums[index + 1:]:
-
-                if -value - item not in tmp_data:
-                    tmp_data.add(item)
-                else:
-                    res.add((value, item, -value - item))
-
-        return res
 
 
 if __name__ == "__main__":

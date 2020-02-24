@@ -23,6 +23,8 @@ class Solution:
 
             使用双端队列的方式实现
 
+            最左边保留最大的值.
+
         Args:
             nums(List[int]):
             k(int):

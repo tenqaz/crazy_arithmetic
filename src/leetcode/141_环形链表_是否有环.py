@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+    # -*- coding: utf-8 -*-
 
 """
 @author: Jim
@@ -6,6 +6,8 @@
 @time: 2019/12/5 10:22
 @desc:
     判断链表是否有环
+    
+    https://leetcode-cn.com/problems/linked-list-cycle/submissions/
 """
 
 from __future__ import annotations
@@ -46,6 +48,9 @@ class Solution(object):
     def hasCycle2(self, head: ListNode):
         """  判断链表是否有环
         解法: 哈希表判重方式
+
+        时间复杂度： O(n)
+        空间复杂度: O(n)
 
         :type head: ListNode
         :rtype: bool

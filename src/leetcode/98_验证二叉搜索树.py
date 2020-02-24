@@ -1,13 +1,16 @@
 """
 @author: Jim
 @project: crazy_arithmetic
-@file: 98_isValidBST.py
+@file: 98_验证二叉搜索树.py
 @time: 2019/12/10 14:28
 @desc:
 
     验证二叉搜索树
 
     判断一个二叉树是否是二叉搜索树
+
+    1. 中序遍历等于排序
+    2. 递归，左节点小于父节点，右节点大于父节点。
 """
 
 from typing import List
@@ -90,6 +93,8 @@ class Solution:
 
     def gen3(self, root: TreeNode, min: int, max: int):
         """
+
+            递归遍历，左节点会小于父节点，右节点大于父节点
 
         Args:
             root:
