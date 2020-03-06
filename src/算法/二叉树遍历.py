@@ -62,7 +62,7 @@ class Traverse:
         """
         if not root:
             return None
-        
+
         self.back(root.left)
         self.back(root.right)
         print(root.val)
@@ -76,6 +76,19 @@ class Traverse:
         Returns:
 
         """
+
+        pass
+
+    def bfs(self, root: TreeNode):
+        """
+            广度优先遍历
+        Args:
+            root:
+
+        Returns:
+
+        """
+
 
 if __name__ == '__main__':
     traverse = Traverse()

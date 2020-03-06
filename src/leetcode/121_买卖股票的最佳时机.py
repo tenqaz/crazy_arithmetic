@@ -32,30 +32,6 @@ class Solution:
 
         return max_value
 
-    def maxProfit3(self, prices: List[int]) -> int:
-        """
-            第二种暴力
-        Args:
-            prices:
-
-        Returns:
-
-        """
-        if len(prices) < 2:
-            return 0
-
-        min_value = prices[0]
-        res = 0
-        for i in prices[1:]:
-            if i < min_value:
-                min_value = i
-                continue
-
-            if i - min_value > res:
-                res = i - min_value
-
-        return res
-
     def maxProfit(self, prices: List[int]) -> int:
         """
             动态规划
@@ -74,13 +50,12 @@ class Solution:
         for i in range(1, len(prices)):
             price = prices[i]
             min_value = min(min_value, price)
-            max_value = max(max_value, price-min_value)
+            max_value = max(max_value, price - min_value)
 
         return max_value
 
 
-
 if __name__ == '__main__':
     solution = Solution()
-    result = solution.maxProfit([7,1,5,3,6,4])
+    result = solution.maxProfit([7, 1, 5, 3, 6, 4])
     print(result)

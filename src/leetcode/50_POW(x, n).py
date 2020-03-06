@@ -1,7 +1,7 @@
 """
 @author: Jim
 @project: crazy_arithmetic
-@file: 50_myPow.py
+@file: 50_POW(x, n).py
 @time: 2019/12/16 16:56
 @desc:
     实现 pow(x, n) ，即计算 x 的 n 次幂函数。
@@ -9,30 +9,6 @@
 
 
 class Solution:
-    def myPow(self, x: float, n: int) -> float:
-        """
-
-            使用递归解，发现递归的深度是有限的。
-
-            这个不可解
-
-        Args:
-            x:
-            n:
-
-        Returns:
-
-        """
-
-        if n == 1:
-            return x
-
-        if n > 0:
-            return x * self.myPow(x, n - 1)
-        elif n < 0:
-            return 1 / x * self.myPow(x, n + 1)
-        else:
-            return 1
 
     def myPow2(self, x: float, n: int) -> float:
         """
