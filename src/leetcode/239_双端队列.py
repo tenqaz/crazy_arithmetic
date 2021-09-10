@@ -25,6 +25,9 @@ class Solution:
 
             最左边保留最大的值.
 
+            1. 在什么时候删除左边节点
+            2. 在什么时候保留最大节点在最左边
+
         Args:
             nums(List[int]):
             k(int):

@@ -39,7 +39,7 @@ class Solution:
 
     def minimumTotal2(self, triangle: List[List[int]]) -> int:
         """
-            动态规划. 自顶向下
+            动态规划. 自顶向下相加
             每一层保存当前的状态、大小
         Args:
             triangle:
@@ -67,7 +67,7 @@ class Solution:
 
     def minimumTotal(self, triangle: List[List[int]]) -> int:
         """
-        动态规划。 自底向上
+        动态规划。 自底向上相加
 
         时间复杂度：O(n^2)
         空间复杂度: O(1)
