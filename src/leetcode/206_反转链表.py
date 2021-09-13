@@ -24,6 +24,28 @@ class ListNode(object):
         self.next = None
 
 
+def print_linkedlist(head: ListNode):
+    print("--------分割线------")
+    while head:
+        print(head.val)
+        head = head.next
+
+
+def make_linkedlist(value_list, none=None):
+    if not value_list:
+        return none
+
+    head = ListNode(value_list[0])
+    cur_node = head
+
+    for i in value_list[1:]:
+        node = ListNode(i)
+        cur_node.next = node
+        cur_node = node
+
+    return head
+
+
 class Solution(object):
 
     def reverseList(self, head: ListNode) -> ListNode:
@@ -50,3 +72,10 @@ class Solution(object):
             current_node = next_node
 
         return last_node
+
+
+if __name__ == '__main__':
+    head = make_linkedlist([1, 2, 3, 4, 5])
+    s = Solution()
+    ret = s.reverseList(head)
+    print_linkedlist(ret)
