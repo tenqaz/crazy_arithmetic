@@ -23,28 +23,17 @@
 
 """
 
-from collections import defaultdict
+from collections import defaultdict, Counter
+
 from typing import List
 
 
 class Solution:
-    def majorityElement2(self, nums: List[int]) -> int:
-
-        data = defaultdict(int)
-
-        max_count = 0
-        max_data = 0
-
-        for i in nums:
-            data[i] += 1
-
-            if data[i] > max_count:
-                max_count = data[i]
-                max_data = i
-
-        return max_data
-
     def majorityElement(self, nums, lo=0, hi=None):
+        """  分而治之. 这太难想到了。。
+
+        """
+
         def majority_element_rec(lo, hi):
             # base case; the only element in an array of size 1 is the majority
             # element.
@@ -68,8 +57,65 @@ class Solution:
 
         return majority_element_rec(0, len(nums) - 1)
 
+    def majorityElement2(self, nums: List[int]) -> int:
+        """ 这里使用了对nums进行计数获取其中最大的值。
+        """
+
+        data = defaultdict(int)
+
+        max_count = 0
+        max_data = 0
+
+        for i in nums:
+            data[i] += 1
+
+            if data[i] > max_count:
+                max_count = data[i]
+                max_data = i
+
+        return max_data
+
+    def majorityElement3(self, nums: List[int]) -> int:
+        """
+        算法逻辑和上面的一样，只是使用了python中内置库Counter
+
+        """
+        c = Counter(nums)
+        return c.most_common(1)[0][0]
+
+    def majorityElement4(self, nums: List[int]) -> int:
+        """ 先排序，再取中间的那个数，一定是众数
+
+        时间复杂度:
+        """
+        nums.sort()
+
+        return nums[len(nums) // 2]
+
+    def majorityElement5(self, nums):
+        """ 摩尔投票法。最优
+
+        数字大于一半，只要不同的相互抵消，则剩下的肯定就是众数
+
+        时间复杂度: O(n)
+        空间复杂度: O(1)
+        """
+
+        cur_num = nums[0]
+        cur_count = 1
+        for num in nums[1:]:
+            if cur_num == num:
+                cur_count += 1
+            elif cur_count == 0:
+                cur_count += 1
+                cur_num = num
+            else:
+                cur_count -= 1
+
+        return cur_num
+
 
 if __name__ == '__main__':
     solution = Solution()
-    data = solution.majorityElement([2, 2, 1, 1, 1, 2, 2])
+    data = solution.majorityElement5([6, 5, 5])
     print(data)
