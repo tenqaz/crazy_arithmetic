@@ -56,18 +56,18 @@ class Solution:
         Returns:
 
         """
+        max = 0
 
-        if not root: return 0
+        if not root or root.val is None: return max
 
         queue = [root]
-        max = 0
 
         while queue:
 
             max += 1
             que_len = len(queue)
 
-            for index in range(que_len):
+            for _ in range(que_len):
 
                 node = queue.pop(0)
 
