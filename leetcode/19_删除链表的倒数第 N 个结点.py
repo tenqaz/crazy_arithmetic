@@ -4,11 +4,8 @@
 https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
 """
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+from tools.linked_list_tools import *
+
 
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
@@ -24,3 +21,18 @@ class Solution:
         p.next = p.next.next
 
         return head.next
+
+
+if __name__ == '__main__':
+    # 案例1  结果：[1,2,3,5]
+    # head = [1, 2, 3, 4, 5]
+    # n = 2
+
+    # 案例2 结果: 空
+    head = [1]
+    n = 1
+
+    linklist_head = make_linkedlist(head)
+
+    ret_head = Solution().removeNthFromEnd(linklist_head, n)
+    print_linkedlist(ret_head)

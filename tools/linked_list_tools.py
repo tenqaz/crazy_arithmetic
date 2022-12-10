@@ -11,9 +11,9 @@ def print_linkedlist(head: ListNode):
         head = head.next
 
 
-def make_linkedlist(value_list, none=None):
+def make_linkedlist(value_list):
     if not value_list:
-        return none
+        return
 
     head = ListNode(value_list[0])
     cur_node = head
