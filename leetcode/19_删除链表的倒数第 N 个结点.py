@@ -9,6 +9,10 @@ from tools.linked_list_tools import *
 
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        """
+            快慢指针
+            定义两个快慢指针，快指针先走n个位置，这样快指针和慢指针的间距就是n，然后同时往后走，快指针到尾节点时，慢指针所指向的就是需要删除的节点。
+        """
         head = p = q = ListNode(-1, head)
 
         for i in range(n):
