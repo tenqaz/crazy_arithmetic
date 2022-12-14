@@ -18,6 +18,44 @@ from typing import List
 
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+        """ 排序 + 双指针
+
+            时间复杂度:O(n^2)
+            空间复杂度:O(1)
+        """
+
+        ret = []
+        n = len(nums)
+        nums.sort()
+
+        for i in range(n):
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
+
+            if nums[i] > 0:
+                break
+
+            L = i + 1
+            R = n - 1
+            while L < R:
+                if nums[i] + nums[L] + nums[R] == 0:
+                    ret.append([nums[i], nums[L], nums[R]])
+                    while L < R and nums[L] == nums[L + 1]:
+                        L += 1
+
+                    while L < R and nums[R] == nums[R - 1]:
+                        R -= 1
+
+                    L += 1
+                    R -= 1
+                elif nums[i] + nums[L] + nums[R] < 0:
+                    L += 1
+                else:
+                    R -= 1
+
+        return ret
+
+    def threeSum2(self, nums: List[int]) -> List[List[int]]:
         """
 
             使用哈希表完成。类似于两数之和
@@ -50,6 +88,30 @@ class Solution:
                     res.add((v, -v - x, x))
         return map(list, res)
 
+
+    def threeSum_99(self, nums: List[int]) -> List[List[int]]:
+        """ 暴力破解
+
+            该放在leetcode上直接超时。
+        """
+        ret = []
+        nums.sort()
+        for i in range(len(nums)):
+            if i != 0 and nums[i] == nums[i - 1]:
+                continue
+
+            for j in range(i+1, len(nums)):
+                if j != i+1 and nums[j] == nums[j - 1]:
+                    continue
+
+                for k in range(j+1, len(nums)):
+                    if k != j+1 and nums[k] == nums[k-1]:
+                        continue
+
+                    if nums[i] + nums[j] + nums[k] == 0:
+                        ret.append([nums[i], nums[j], nums[k]])
+
+        return ret
 
 if __name__ == "__main__":
     nums = [-1, 0, 1, 2, -1, -4]

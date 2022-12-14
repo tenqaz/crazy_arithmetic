@@ -20,6 +20,12 @@ class Solution:
 
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         """
+            使用大根堆
+        """
+        pass
+
+    def maxSlidingWindow2(self, nums: List[int], k: int) -> List[int]:
+        """
 
             使用双端队列的方式实现
 

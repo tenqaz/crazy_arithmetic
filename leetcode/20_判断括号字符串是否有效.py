@@ -27,7 +27,8 @@ class Solution(object):
             if i in mapping:
 
                 pop_value = stack_list.pop() if stack_list else "#"
-
+                
+                # 可以提前结束
                 if pop_value != mapping[i]:
                     return False
             else:

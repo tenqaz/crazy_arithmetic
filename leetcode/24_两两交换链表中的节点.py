@@ -75,4 +75,6 @@ if __name__ == '__main__':
     head = make_linkedlist([1, 2, 3, 4])
     s = Solution()
     ret = s.swapPairs(head)
+
+    # [2,1,4,3]
     print_linkedlist(ret)
