@@ -82,3 +82,12 @@ class Solution:
                 if node.right: queue.append(node.right)
 
             min_result += 1
+
+if __name__ == '__main__':
+    # result: 3
+    data = [3, 9, 20, None, None, 15, 7]
+    head = make_Treelist(data)
+
+    s = Solution()
+    ret = s.maxDepth(head)
+    print(ret)

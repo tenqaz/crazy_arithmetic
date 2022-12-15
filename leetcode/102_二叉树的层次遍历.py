@@ -27,6 +27,7 @@
 
 from typing import List
 
+from tools.tree_node_tools import make_Treelist
 
 class TreeNode:
     def __init__(self, x):
@@ -94,3 +95,12 @@ class Solution:
         self._dfs(root, 0)
 
         return self.results
+
+
+if __name__ == '__main__':
+    data = [3, 9, 20, None, None, 15, 7]
+    head = make_Treelist(data)
+
+    s = Solution()
+    ret = s.levelOrder(head)
+    print(ret)

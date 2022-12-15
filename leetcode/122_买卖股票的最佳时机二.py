@@ -54,7 +54,7 @@ class Solution:
         动态规划
 
         最大利润
-        dp[i][0] = max(dp[i-1][0], dp[i][1] + prices[i])
+        dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
         dp[i][1] = max(dp[i-1][1], dp[i][0] - prices[i])
         Args:
             prices:
