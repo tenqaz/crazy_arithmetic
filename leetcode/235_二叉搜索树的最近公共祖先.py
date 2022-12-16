@@ -6,6 +6,7 @@
 @desc:
     二叉搜索树最近公共祖先
 """
+from tools.tree_node_tools import make_Treelist
 
 
 class TreeNode:
@@ -39,3 +40,13 @@ class Solution:
             return self.lowestCommonAncestor(root.right, p, q)
 
         return root
+
+if __name__ == '__main__':
+    # result: 6
+    root = [6, 2, 8, 0, 4, 7, 9, None, None, 3, 5]
+    p = TreeNode(2)
+    q = TreeNode(8)
+
+    head = make_Treelist(root)
+    ret = Solution().lowestCommonAncestor(head, p, q)
+    print(ret.val)

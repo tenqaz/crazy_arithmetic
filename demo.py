@@ -1,58 +1,27 @@
-from typing import Optional
+"""
+    冒泡排序
 
+    两两交换，将大的值往后放。
+"""
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+from typing import List, Optional
 
+from tools.linked_list_tools import ListNode, make_linkedlist, print_linkedlist
 
-def print_linkedlist(head: ListNode):
-    print("--------分割线------")
-    while head:
-        print(head.val)
-        head = head.next
-
-
-def make_linkedlist(value_list):
-    if not value_list:
-        return
-
-    head = ListNode(value_list[0])
-    cur_node = head
-
-    for i in value_list[1:]:
-        node = ListNode(i)
-        cur_node.next = node
-        cur_node = node
-
-    return head
 
 class Solution:
-    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+    def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
+        p = q = pre = ListNode(-1, head)
 
-        fast = slow = ListNode(-1, head)
+        for _ in range(left - 1):
+            p = p.next
 
-        for i in range(n):
-            fast = fast.next
+        while pre.next and pre.next and left < right:
+            next_node = pre.next.next
+            pre.next = next_node
+            next_node.next
 
-        while fast.next:
-            fast = fast.next
-            slow = slow.next
 
-        slow.next = slow.next.next
-        return head.next
 
 if __name__ == '__main__':
-    # 案例1  结果：[1,2,3,5]
-    # head = [1, 2, 3, 4, 5]
-    # n = 2
-
-    # 案例2 结果: 空
-    head = [1]
-    n = 1
-
-    linklist_head = make_linkedlist(head)
-
-    ret_head = Solution().removeNthFromEnd(linklist_head, n)
-    print_linkedlist(ret_head)
+    pass

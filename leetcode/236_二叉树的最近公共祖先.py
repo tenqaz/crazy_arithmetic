@@ -4,16 +4,12 @@
 @file: 236_二叉树的最近公共祖先.py
 @time: 2019/12/16 11:11
 @desc:
+    https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/
 
     二叉树最近公共祖先
 """
 
-
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from tools.tree_node_tools import *
 
 
 class Solution:
@@ -50,3 +46,13 @@ class Solution:
             return left
         else:
             return root
+
+
+if __name__ == '__main__':
+    root = [3, 5, 1, 6, 2, 0, 8, None, None, 7, 4]
+    p = TreeNode(5)
+    q = TreeNode(1)
+
+    head = make_Treelist(root)
+    ret = Solution().lowestCommonAncestor(head, p, q)
+    print(ret.val)

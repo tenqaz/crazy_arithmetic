@@ -9,13 +9,14 @@
 
 from typing import List
 
+
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
 
-        left, right = 0, len(nums)-1
+        left, right = 0, len(nums) - 1
 
-        while left <= right:
-            mid = (right-left) // 2 + left
+        while left < right:
+            mid = (right - left) // 2 + left
 
             if nums[mid] < target:
                 left = mid + 1
@@ -27,21 +28,18 @@ class Solution:
         return -1
 
 
+if __name__ == '__main__':
+    # target = 4
+    nums = [-1, 0, 3, 5, 9, 12]
+    target = 9
 
+    # nums = [-1,0,3,5,9,12]
+    # target = 13
 
-# target = 4
-nums = [-1,0,3,5,9,12]
-target = 9
+    # 1
+    # nums = [1,4,7,11,15]
+    # target = 4
 
-
-nums = [-1,0,3,5,9,12]
-target = 13
-
-# 1
-nums = [1,4,7,11,15]
-target = 4
-
-
-s = Solution()
-ret = s.search(nums, target)
-print(ret)
+    s = Solution()
+    ret = s.search(nums, target)
+    print(ret)
