@@ -11,6 +11,8 @@
         当 a + b + c < 0. 则首端向右移动一步，然后继续比较
         当 a + b + c = 0. 则ok
 
+    和剑指offer007题目一样
+
 """
 
 from typing import List
