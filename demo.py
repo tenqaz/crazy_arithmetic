@@ -11,17 +11,28 @@ from tools.linked_list_tools import ListNode, make_linkedlist, print_linkedlist
 
 class Solution:
     def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
-        p = q = pre = ListNode(-1, head)
+
+        ret = p = ListNode(-1, head)
 
         for _ in range(left - 1):
             p = p.next
 
-        while pre.next and pre.next and left < right:
-            next_node = pre.next.next
-            pre.next = next_node
-            next_node.next
+        cur = p.next
+        for _ in range(right - left):
+            next = cur.next
+            cur.next = next.next
+            next.next = p.next
+            p.next = next
 
+
+        return ret.next
 
 
 if __name__ == '__main__':
-    pass
+    data = [1, 2, 3, 4, 5]
+    left = 2
+    right = 4
+
+    head = make_linkedlist(data)
+    ret = Solution().reverseBetween(head, left, right)
+    print_linkedlist(ret)
