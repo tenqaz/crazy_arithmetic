@@ -24,6 +24,9 @@
 """
 
 
+from tools.tree_node_tools import make_Treelist
+
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -75,3 +78,13 @@ class Solution:
                 if node.right: queue.append(node.right)
 
         return max
+
+
+if __name__ == '__main__':
+    # result: 3
+    data = [3, 9, 20, None, None, 15, 7]
+    head = make_Treelist(data)
+
+    s = Solution()
+    ret = s.maxDepth2(head)
+    print(ret)

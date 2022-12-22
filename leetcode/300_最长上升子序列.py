@@ -17,7 +17,7 @@ class Solution:
         """
             动态规划
 
-            dp[i] = dp[j] + 1
+            dp[i] = max(dp[i], dp[j] + 1)
         Args:
             nums:
 

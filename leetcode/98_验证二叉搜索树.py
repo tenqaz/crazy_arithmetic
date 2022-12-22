@@ -162,7 +162,6 @@ def init3():
 
 
 if __name__ == '__main__':
-    # data = [5, 1, 4, None, None, 3, 6]
 
     # root = init1()
     # root = init2()  # false

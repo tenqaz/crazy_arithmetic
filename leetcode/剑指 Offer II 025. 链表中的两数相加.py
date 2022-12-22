@@ -14,50 +14,46 @@ from tools.linked_list_tools import ListNode, make_linkedlist, print_linkedlist
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-
         l1_stack = []
         l2_stack = []
-        ret_head = cur_head = ListNode(-1)
+        pre = ListNode(-1)
 
         while l1:
-            l1_stack.append(l1.val)
+            l1_stack.append(l1)
             l1 = l1.next
 
         while l2:
-            l2_stack.append(l2.val)
+            l2_stack.append(l2)
             l2 = l2.next
 
         jinwei = 0
         while l1_stack or l2_stack or jinwei:
-            l1_data = l2_data = 0
-
+            l2_num = l1_num = 0
             if l1_stack:
-                l1_data = l1_stack.pop()
-
+                l1_num = l1_stack.pop().val
             if l2_stack:
-                l2_data = l2_stack.pop()
+                l2_num = l2_stack.pop().val
 
-            data_sum = l1_data + l2_data + jinwei
+            node_num = l1_num + l2_num + jinwei
             jinwei = 0
-
-            if data_sum > 9:
+            if node_num > 9:
+                node_num = node_num % 10
                 jinwei = 1
-                data_sum %= 10
 
-            last_node = ListNode(data_sum)
-            if cur_head.next:
-                next_node = cur_head.next
-                cur_head.next = last_node
-                last_node.next = next_node
-            else:
-                cur_head.next = last_node
+            next = pre.next
+            pre.next = ListNode(node_num, next)
 
-        return ret_head.next
+        return pre.next
 
 
 if __name__ == '__main__':
+    # [7, 8, 0, 7]
     l1 = [7, 2, 4, 3]
     l2 = [5, 6, 4]
+
+    # [1, 0]
+    # l1 = [5]
+    # l2 = [5]
     head1 = make_linkedlist(l1)
     head2 = make_linkedlist(l2)
 
