@@ -98,6 +98,7 @@ class Solution:
 
 
 if __name__ == '__main__':
+    # [[3],[9,20],[15,7]]
     data = [3, 9, 20, None, None, 15, 7]
     head = make_Treelist(data)
 

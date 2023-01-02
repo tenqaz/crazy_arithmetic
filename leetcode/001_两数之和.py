@@ -59,12 +59,12 @@ class Solution:
 
         """
 
-        cache_dict = {}
-        for index, value in enumerate(nums):
-            if cache_dict.get(target - value, None) is not None:
-                return cache_dict[target - value], index
+        cache = {}
+        for index, record in enumerate(nums):
+            if record in cache:
+                return [cache[record], index]
             else:
-                cache_dict[value] = index
+                cache[target - record] = index
 
 
 if __name__ == '__main__':

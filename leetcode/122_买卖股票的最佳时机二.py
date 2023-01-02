@@ -29,6 +29,9 @@ class Solution:
     def maxProfit2(self, prices: List[int]) -> int:
         """
         贪心算法
+        1. 只要未买入，则买入
+        2. 只要后一天的价格大于持有的价格，则卖出赚取差价。
+        3. 如果是最后一天，如果持有，就算亏损也要卖出。
         Args:
             prices:
 

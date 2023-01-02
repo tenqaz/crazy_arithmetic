@@ -67,10 +67,12 @@ class Solution:
 
         self._gen(0, [])
 
-        return self._print_result()
+        # return self._print_result()
 
 
 if __name__ == '__main__':
     solution = Solution()
     result = solution.solveNQueens(4)
-    pprint(result)
+    # pprint(result)
+
+    print(solution.result)

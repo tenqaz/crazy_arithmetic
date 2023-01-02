@@ -16,6 +16,8 @@ class Solution:
     def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
         """
 
+        递归
+
         如果当前节点==None Or p Or q 则直接返回
         获取左端点，获取右端点，如果两个都有值，则返回该端点的值。
 

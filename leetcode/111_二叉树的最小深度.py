@@ -22,6 +22,7 @@
 返回它的最小深度  2.
 
 """
+from tools.tree_node_tools import make_Treelist
 
 
 class TreeNode:
@@ -66,11 +67,12 @@ class Solution:
         if not root: return 0
 
         queue = [root]
-        min_result = 1
+        min_result = 0
 
         while queue:
 
             queue_len = len(queue)
+            min_result += 1
 
             for index in range(queue_len):
 
@@ -81,7 +83,6 @@ class Solution:
                 if node.left: queue.append(node.left)
                 if node.right: queue.append(node.right)
 
-            min_result += 1
 
 if __name__ == '__main__':
     # result: 3
