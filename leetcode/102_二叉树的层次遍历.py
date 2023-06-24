@@ -29,6 +29,7 @@ from typing import List
 
 from tools.tree_node_tools import make_Treelist
 
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
