@@ -28,7 +28,7 @@ class Solution:
         prev1 = 1
         prev2 = 1
 
-        for i in range(2, N):
+        for i in range(2, N+1):
             prev1, prev2 = prev1 + prev2, prev1
 
         return prev1
