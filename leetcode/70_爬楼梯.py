@@ -56,8 +56,18 @@ class Solution:
 
         return y
 
+    def climbStairs3(self, n: int) -> int:
+
+        p, q, r = 0, 0, 1
+        for i in range(1, n+1):
+            p = q
+            q = r
+            r = p + q
+
+        return r
+
 
 if __name__ == '__main__':
     solution = Solution()
-    result = solution.climbStairs2(3)
+    result = solution.climbStairs3(3)
     print(result)
