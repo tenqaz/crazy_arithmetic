@@ -8,19 +8,4 @@
 
 
 class Solution:
-    def replaceSpace(self, s: str) -> str:
-        ret_list = []
-        for i in s:
-            if i == " ":
-                ret_list.append("%20")
-            else:
-                ret_list.append(i)
-
-        return "".join(ret_list)
-
-
-if __name__ == '__main__':
-    s = "We are happy."
-    solution = Solution()
-    ret = solution.replaceSpace(s)
-    print(ret)
+    def fib(self, n: int) -> int:

@@ -11,27 +11,75 @@ from typing import List
 
 
 class Solution:
-    def coinChange(self, coins: List[int], amount: int) -> int:
-        """
-            动态规划
 
-            dp[i] = min(dp[i], dp[i - coins[j]] + 1)
-        Args:
-            coins:
-            amount:
-
-        Returns:
-
+    def coinChange2(self, coins: List[int], amount: int) -> int:
+        """ 暴力递推
         """
 
-        dp = [float('inf')] * (amount + 1)
-        dp[0] = 0
+        if amount == 0:
+            return 0
+
+        if amount < 0:
+            return -1
+
+        res = float('inf')
 
         for coin in coins:
-            for i in range(coin, amount + 1):
-                dp[i] = min(dp[i], dp[i - coin] + 1)
+            count = self.coinChange(coins, amount - coin)
+            if count == -1:
+                continue
 
-        return -1 if dp[amount] == float('inf') else dp[amount]
+            res = min(res, count + 1)
+
+        return res if res != float('inf') else -1
+
+    def coinChange3(self, coins: List[int], amount: int) -> int:
+        """ 暴力递推，使用缓存，不用重复计算
+        """
+
+        cache = {}
+
+        def gen(coins: List[int], amount: int) -> int:
+
+            if amount == 0:
+                return 0
+
+            if amount < 0:
+                return -1
+
+            if amount in cache:
+                return cache[amount]
+
+            res = float('inf')
+
+            for coin in coins:
+                count = self.coinChange(coins, amount - coin)
+                if count == -1:
+                    continue
+
+                res = min(res, count + 1)
+
+            cache[amount] = res if res != float('inf') else -1
+            return cache[amount]
+
+        return gen(coins, amount)
+
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        """ 使用dp的方式进行递推
+
+        """
+
+        dp = [amount + 1] * (amount + 1)
+        dp[0] = 0
+
+        for i in range(amount + 1):
+            for coin in coins:
+                if i - coin < 0:
+                    continue
+
+                dp[i] = min(dp[i-coin] + 1, dp[i])
+
+        return -1 if dp[amount] == amount + 1 else dp[amount]
 
 
 if __name__ == '__main__':
