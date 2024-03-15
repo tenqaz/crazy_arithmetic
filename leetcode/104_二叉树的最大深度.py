@@ -38,12 +38,8 @@ class Solution:
 
     def maxDepth(self, root: TreeNode) -> int:
         """
-            DFS 解法
-        Args:
-            root:
-
-        Returns:
-
+            DFS 解法。
+            后序遍历，再求最大值。
         """
 
         if not root: return 0

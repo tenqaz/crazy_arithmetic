@@ -31,7 +31,6 @@ class Solution:
 
             res = min(res, count + 1)
 
-        return res if res != float('inf') else -1
 
     def coinChange3(self, coins: List[int], amount: int) -> int:
         """ 暴力递推，使用缓存，不用重复计算

@@ -6,6 +6,10 @@
 你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。
 
 https://leetcode-cn.com/problems/reverse-string/
+
+
+思路：
+    左右指针进行交换值。
 """
 
 
@@ -16,11 +20,8 @@ class Solution:
         Do not return anything, modify s in-place instead.
         """
 
-        p = 0
-        q = len(s)-1
-
-        while p < q:
-            s[p], s[q] = s[q], s[p]
-
-            p += 1
-            q -= 1
+        left, right = 0, len(s) - 1
+        while left < right:
+            s[left], s[right] = s[right], s[left]
+            left += 1
+            right -= 1

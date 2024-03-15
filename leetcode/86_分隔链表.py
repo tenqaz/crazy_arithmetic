@@ -9,11 +9,10 @@ class Solution:
             1. 首先创建两个虚拟头结点，分别用来保存小于x的节点和大于等于x的节点
             2. 然后再将两个链表进行合并
         """
-        dummy_less_than = l1 = ListNode(-1)
-        dummy_more_than = l2 = ListNode(-1)
+        l1_dummy = l1 = ListNode(-1)
+        l2_dummy = l2 = ListNode(-1)
 
         while head:
-
             if head.val < x:
                 l1.next = head
                 l1 = l1.next
@@ -21,13 +20,14 @@ class Solution:
                 l2.next = head
                 l2 = l2.next
 
-            next_node = head.next
-            head.next = None
-            head = next_node
+            head = head.next
 
-        l1.next = dummy_more_than.next
+        l1.next = l2_dummy.next
 
-        return dummy_less_than.next
+        # 有可能l2.next为None，需要手动置空
+        l2.next = None
+
+        return l1_dummy.next
 
 
 if __name__ == '__main__':

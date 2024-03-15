@@ -11,9 +11,6 @@
 https://leetcode.cn/problems/diameter-of-binary-tree/
 '''
 
-import sys
-sys.path.append("../")
-
 from tools.tree_node_tools import *
 from typing import Optional
 
@@ -21,7 +18,11 @@ from typing import Optional
 
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        
+        """
+            后序遍历。
+            
+            计算每一个节点的左子树和右子树的最大深度之和，然后求得最大值。
+        """
 
         self.max_len = 1
         
