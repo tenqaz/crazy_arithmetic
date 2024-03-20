@@ -90,5 +90,5 @@ if __name__ == '__main__':
     head = make_Treelist(data)
 
     s = Solution()
-    ret = s.maxDepth(head)
+    ret = s.minDepth(head)
     print(ret)
