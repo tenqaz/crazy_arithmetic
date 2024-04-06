@@ -44,10 +44,11 @@ def make_linkedlist(value_list, none=None):
 
 class Solution(object):
 
-    def reverseList(self, head: ListNode) -> ListNode:
+    def reverseList2(self, head: ListNode) -> ListNode:
         """ 反转一个单链表
 
-            迭代
+            1->2->3->4->5->None
+            None<-1<-2<-3<-4<-5
 
             时间复杂度: O(n)
             空间复杂度: O(1)
@@ -68,6 +69,25 @@ class Solution(object):
             current_node = next_node
 
         return last_node
+
+    def reverseList(self, head):
+        """
+            递归解法
+            1->2->3->4->5->None
+            1->2->3->5->4->None
+            ....
+            5->4->3->2->1->None
+        Returns:
+
+        """
+        if not head or not head.next:
+            return head
+
+        last_node = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return last_node
+
 
 
 if __name__ == '__main__':
