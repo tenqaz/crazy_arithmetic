@@ -20,3 +20,9 @@ class Solution:
             fast += 1
 
         return slow
+
+
+nums = [3, 2, 2, 3]
+val = 3
+ret = Solution().removeElement(nums, val)
+print(ret)
