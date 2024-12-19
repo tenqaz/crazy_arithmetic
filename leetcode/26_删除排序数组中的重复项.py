@@ -24,3 +24,9 @@ class Solution:
             fast += 1
 
         return slow + 1
+
+nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+ret = Solution().removeDuplicates(nums)
+# 5, nums = [0,1,2,3,4]
+print(ret)
+print(nums)
