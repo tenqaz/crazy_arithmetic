@@ -16,12 +16,17 @@ class Solution:
 
     def lengthOfLIS(self, nums: List[int]) -> int:
         """
+
+            dp[i] = max(dp[j], dp[j]+1)
+            第i个元素的最长上升子序列长度
+
             遍历两次，
             1. 外部循环式获取dp[i]可能性的最大值
             2. 内层循环， 遍历前面每一个dp的可能性，求出dp[i]的最大值
         """
 
         nums_len = len(nums)
+        # 默认每一个最长上升子序列长度为 1
         dp = [1] * nums_len
 
         for i in range(1, nums_len):

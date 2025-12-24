@@ -36,6 +36,32 @@ class Solution(object):
 
         return not stack_list
 
+    def isValid2(self, s: str) -> bool:
+        stack = []
+        mapping = {
+            "}": "{",
+            ")": "(",
+            "]": "["
+        }
+
+        for i in s:
+            if i in mapping:
+                if not stack:
+                    return False
+                    
+                v = stack.pop()
+                if mapping[i] != v:
+                    return False
+            else:
+                stack.append(i)
+
+        if stack:
+            return False
+        else:
+            return True
+            
+                
+        
 
 if __name__ == '__main__':
     solution = Solution()

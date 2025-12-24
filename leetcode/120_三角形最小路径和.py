@@ -69,13 +69,8 @@ class Solution:
         """
         动态规划。 自底向上相加
 
-        时间复杂度：O(n^2)
-        空间复杂度: O(1)
-
-        Args:
-            triangle:
-
-        Returns:
+        i=0, dp[i][j] = triangle[i][j]
+        i>0, dp[i][j] = min(dp[i+1][j], dp[i+1][j+1]) + triangle[i][j]
 
         """
         if not triangle:

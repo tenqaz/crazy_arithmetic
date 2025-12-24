@@ -161,13 +161,28 @@ def init3():
     return data0
 
 
+def init4():
+    # data = [5, 4, 6, null, null, 3, 7]
+    data2 = TreeNode(5)
+    data1 = TreeNode(4)
+    data3 = TreeNode(6)
+    data6 = TreeNode(3)
+    data7 = TreeNode(7)
+
+    data2.left = data1
+    data2.right = data3
+
+    data3.left = data6
+    data3.right = data7
+
+    return data2
 if __name__ == '__main__':
 
     # root = init1()
     # root = init2()  # false
-    root = init3()  # true
+    root = init4()  # true
 
     solution = Solution()
     # rst = solution.isValidBST(root)
-    rst = solution.isValidBST3(root)
+    rst = solution.isValidBST2(root)
     print(rst)

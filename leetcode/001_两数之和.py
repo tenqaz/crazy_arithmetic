@@ -68,6 +68,7 @@ class Solution:
 
 
 if __name__ == '__main__':
+    # [0,1]
     nums = [2, 7, 11, 15]
     target = 9
     solution = Solution()

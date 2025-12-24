@@ -9,6 +9,7 @@
     可以假设除了数字 0 之外，这两个数字都不会以零开头。
 
 """
+
 from tools.linked_list_tools import ListNode, make_linkedlist, print_linkedlist
 
 
@@ -43,10 +44,15 @@ class Solution:
             next = pre.next
             pre.next = ListNode(node_num, next)
 
+        if jinwei:
+            next_node = pre.next
+            pre.next = ListNode(1)
+            pre.next.next = next_node
+
         return pre.next
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # [7, 8, 0, 7]
     l1 = [7, 2, 4, 3]
     l2 = [5, 6, 4]

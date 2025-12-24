@@ -1,10 +1,13 @@
+from typing import Optional
+
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
 
-def print_linkedlist(head: ListNode):
+def print_linkedlist(head: Optional[ListNode]):
     print("--------分割线------")
     while head:
         print(head.val)

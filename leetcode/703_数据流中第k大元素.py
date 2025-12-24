@@ -11,6 +11,9 @@
 
 from __future__ import annotations
 
+import heapq
+from typing import List
+
 
 class KthLargest(object):
     """
@@ -18,6 +21,42 @@ class KthLargest(object):
         2. 插入的时候，如果满了，并且堆顶小于插入的元素，则
 
     """
+
+    def __init__(self, k, nums):
+        """
+        :type k: int
+        :type nums: List[int]
+        """
+
+        self._k = k
+        self._heap = [0]
+        self._count = 0
+
+        while nums:
+            self.add(nums.pop())
+
+    def add(self, val):
+        """
+        :type val: int
+        :rtype: int
+        """
+
+        # 如果堆满了
+        if self._count == self._k:
+            if val > self._heap[1]:  # 如果大于堆顶元素，则替换堆顶从上往下的堆化
+                self._heap[1] = val
+
+                self._sort_down()
+
+            else:  # 如果小于等于堆顶元素，则不变
+                pass
+
+        else:  # 如果堆没满，则插入到尾部，并进行从下往上的堆化
+            self._count += 1
+            self._heap.append(val)
+            self._sort_up()
+
+        return self._heap[1]
 
     @classmethod
     def _parent(self, child_index: int) -> int:
@@ -102,42 +141,22 @@ class KthLargest(object):
             self._heap[current_index], self._heap[parent_index] = self._heap[parent_index], self._heap[current_index]
             current_index, parent_index = parent_index, KthLargest._parent(parent_index)
 
-    def __init__(self, k, nums):
-        """
-        :type k: int
-        :type nums: List[int]
-        """
+    # *******  使用内置库实现  *******
+    def __init__2(self, k: int, nums: List[int]):
+        self.heap = nums
+        self.k = k
 
-        self._k = k
-        self._heap = [0]
-        self._count = 0
+        heapq.heapify(self.heap)
+        while len(self.heap) > self.k:
+            heapq.heappop(self.heap)
 
-        while nums:
-            self.add(nums.pop())
+    def add2(self, val: int) -> int:
+        if len(self.heap) < self.k:
+            heapq.heappush(self.heap, val)
+        elif val > self.heap[0]:
+            heapq.heapreplace(self.heap, val)
 
-    def add(self, val):
-        """
-        :type val: int
-        :rtype: int
-        """
-
-        # 如果堆满了
-        if self._count == self._k:
-            if val > self._heap[1]:  # 如果大于堆顶元素，则替换堆顶从上往下的堆化
-                self._heap[1] = val
-
-                self._sort_down()
-
-            else:  # 如果小于等于堆顶元素，则不变
-                pass
-
-        else:  # 如果堆没满，则插入到尾部，并进行从下往上的堆化
-            self._count += 1
-            self._heap.append(val)
-            self._sort_up()
-
-        return self._heap[1]
-
+        return self.heap[0]
 
 if __name__ == "__main__":
     # kthLargest = KthLargest(2, [0])
